@@ -135,7 +135,7 @@ main.addEventListener("click", addPokemon)
 main.addEventListener("click", releasePokemon)
 
 
-
+//
 
 
 
