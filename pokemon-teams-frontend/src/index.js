@@ -1,9 +1,7 @@
-const BASE_URL = "http://localhost:3000"
-const TRAINERS_URL = `${BASE_URL}/trainers`
-const POKEMONS_URL = `${BASE_URL}/pokemons`
+const BASE_URL = "http://localhost:3000";
+const TRAINERS_URL = `${BASE_URL}/trainers`;
+const POKEMONS_URL = `${BASE_URL}/pokemons`;
 const main = document.querySelector("main");
-const pokeNames = ["Unk-Unk", "Pooly", "Carl", "Toomour", "Riddely", "Lizza", "Glorp", "Geegee", "Tim", "Trax", "Dee", "Asher", "Tomu", "Loouga", "Walley"]
-const pokeSpecies = ["Ivysaur", "Wartortle", "Kakuna", "Pidgeot", "Fearow", "Golduck", "Wigglytuff", "Ninetales", "Growlithe", "Farfetch'd", "Cloyster", "Kingler", "Kangaskhan", "Pinsir", "Pikachu"]
 
 fetch(TRAINERS_URL)
   .then(res => res.json())
@@ -73,8 +71,6 @@ function addPokemonFetch(id) {
       "Accept": 'application/json'
     },
     body: JSON.stringify({
-      nickname: fakerName(),
-      species: fakerSpecies(),
       trainer_id: id
     })
   }
@@ -120,24 +116,6 @@ function findPokemons(trainerData, id) {
   return appendPokemon(filteredTrainer[0].pokemons)
 }
 
-/// POKEMON NAME FAKERs ///
-
-function fakerName() {
-  return pokeNames[Math.floor(Math.random() * 20)]
-}
-
-function fakerSpecies() {
-  return pokeSpecies[Math.floor(Math.random() * 20)]
-}
-
 /// EVENT LISTENERS ///
 main.addEventListener("click", addPokemon)
 main.addEventListener("click", releasePokemon)
-
-
-//
-
-
-
-
-//
